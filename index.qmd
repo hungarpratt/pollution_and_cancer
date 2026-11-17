@@ -1,0 +1,113 @@
+---
+pagetitle: "Something in the Air"
+format:
+  closeread-html:
+    theme: litera
+    embed-resources: true
+    cr-style:
+      section-background-color: "white"
+      narrative-background-color-sidebar: "white"
+      narrative-text-color-sidebar: "#222222"
+      narrative-font-size: "1.15rem"
+      narrative-sidebar-width: "1.5fr"
+      narrative-background-color-overlay: "transparent"
+      narrative-text-color-overlay: "#111111"
+      narrative-overlay-max-width: "900px"
+---
+```{=html}
+
+<style>
+  .intro-photo img { width: 100vw; height: 100vh; max-width: none; object-fit: cover; object-position: center 15%; }
+  .intro-photo.faded img { opacity: 0.3; }
+  .intro .narrative p, .intro .narrative-col p {
+    font-size: 2rem; line-height: 1.35; font-weight: 500;
+  }
+  .intro.cr-section .narrative-col .trigger { padding-block: 4svh; }
+  .intro.cr-section .narrative-col .trigger:first-child { padding-block: 45svh 80svh; }
+  .big-title h1, h1.big-title { font-size: 5rem; font-weight: 700; text-align: center; margin-top: 60vh; margin-bottom: 20vh; }
+  .cr-section:not(.intro) .narrative-col .trigger { padding-block: 3svh; }
+  .cr-section:not(.intro) .narrative { font-size: 1.45rem; line-height: 1.5; }
+  .cr-section:not(.intro) .sticky img { width: 100% !important; }
+    [id^="cr-pgh"] { width: 100%; }
+  [id^="cr-pgh"] img { width: 100% !important; aspect-ratio: 3 / 2; object-fit: cover; }
+  .wide-text p { font-size: 1.45rem; line-height: 1.6; margin-bottom: 1.2em; }
+  #cr-article, #cr-excerpt { width: 100%; }
+  #cr-article img, #cr-excerpt img { width: 100% !important; }
+</style>
+```
+
+:::{.cr-section .intro .cr-column-screen layout="overlay-center"}
+
+&nbsp; @cr-photo
+
+My parents, Barney and Susie Guttman, were both diagnosed with lung cancer in their 80s. @cr-photo-faded
+
+My mother had surgery to remove the tumors, and it was successful. My father went through a series of immunotherapy, then chemotherapy, then radiation. Nothing worked, and he died nine months after his iniitial diagnosis. @cr-photo-faded
+
+Strangely, within several years, a couple of their friends were diagnosed with lung cancer as well. My parents and their friends had no histories of lung cancer in their families. Nor did any of them smoke. @cr-photo-faded
+
+What they shared was a city. They were all born in Pittsburgh, and they lived there in the 1950s, 60s and 70s, when the steel mills and coal mines were still going strong. @cr-photo-faded
+
+I started to wonder whether Pittsburgh's industrial pollution played a role in their developing cancer. @cr-photo-faded
+
+:::{#cr-photo .intro-photo}
+![](figures/Barney_and_Susie.jpg)
+:::
+
+:::{#cr-photo-faded .intro-photo .faded}
+![](figures/Barney_and_Susie.jpg)
+:::
+
+:::
+
+# Something in the Air {.unnumbered .big-title}
+
+:::{.cr-section}
+
+For more than a century, Pittsburgh was known as the Smoky City. Coal-fired mills, railroads and home furnaces filled the air so thickly that streetlights burned at midday. @cr-pgh1
+
+That began to change after World War II. A smoke-control law passed in 1941 was finally enforced in 1946, as Mayor David Lawrence and financier Richard King Mellon launched the city's first "Renaissance." Within a decade, visible smoke had dropped dramatically. @cr-pgh2
+
+Then the steel industry collapsed. Between the late 1970s and mid-1980s, the region lost tens of thousands of mill jobs, a devastating blow to the economy, though one that further cleared the air. @cr-pgh3
+
+Pittsburgh reinvented itself. Mayor Richard Caliguiri's "Renaissance II," along with growth in health care, universities and technology led by Carnegie Mellon and Pitt, carried the city into a new economy by the 1990s. @cr-pgh4
+
+:::{#cr-pgh1}
+![](figures/Pittsburgh_1.jpg){width="90%" fig-align="center"}
+:::
+
+:::{#cr-pgh2}
+![](figures/Pittsburgh_2.jpg){width="90%" fig-align="center"}
+:::
+
+:::{#cr-pgh3}
+![](figures/Pittsburgh_3.jpg){width="90%" fig-align="center"}
+:::
+
+:::{#cr-pgh4}
+![](figures/Pittsburgh_4.jpg){width="90%" fig-align="center"}
+:::
+
+:::
+
+::: {.column-page .wide-text}
+
+Pittsburgh’s skies were noticeably clearer by the early 2000s. Visible soot had begun disappearing in the 1940s and ’50s thanks to smoke-control laws, and by the 1980s, with most of the region’s steel mills shut down, pollution was far lower. But Pittsburgh’s skies cleared decades before its fine-particle pollution did. Not until 2020 did every air monitor in Allegheny County meet the federal annual limit for PM2.5 of 12 micrograms per cubic meter. By then, many of the city’s older residents had been breathing polluted air for decades.
+
+:::
+
+:::{.cr-section}
+
+In 2010, the Pittsburgh Post-Gazette ran an eight-part series called "Mapping Mortality: A Special Report on the Air We Breathe." @cr-article
+
+Its first story ran on the front page on December 12, 2010, under the headline "Region at Risk: Can higher rates of death be linked to air pollution?" @cr-article
+
+Reporters Don Hopey and David Templeton spent a year analyzing 2000–2008 death rates from heart disease, lung disease and lung cancer across 14 counties in western Pennsylvania. [@cr-article]{scale-by="3" pan-to="-70%,-129%"}
+
+They concluded that "pollution may play as big a role in local death rates as Pall Malls, pilsners and pierogies." [@cr-article]{scale-by="3" pan-to="-70%,-129%"}
+
+:::{#cr-article}
+![](figures/Region_At_Risk_article.jpeg)
+:::
+
+:::
