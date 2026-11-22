@@ -3,3 +3,10 @@ _site/
 _jupyterlite/
 .jupyterlite.doit.db
 .ipynb_checkpoints/
+
+# Mac and Jupyter clutter
+.DS_Store
+.virtual_documents/
+
+# Quarto's temporary build folder
+index_files/
