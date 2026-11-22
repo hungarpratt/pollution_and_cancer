@@ -1,51 +1,34 @@
-# Python Project Template
+# Something in the Air
 
-This repository is a template for publishing a Python project as a website using **GitHub Pages**. The page you're reading right now is the site's home page — it's just the `README.md` file from the repo, turned into a web page.
+This is a project I'm working on for my INFO 664 class at Pratt Institute (Programming for Cultural Heritage). It's a data story about lung cancer and air pollution in U.S. counties, starting from my family's history in Pittsburgh.
 
-Everything here is plain Markdown. GitHub pages renders markdown as HTML so it is viewable in the browser.
+**Read the story:** https://hungarpratt.github.io/pollution_and_cancer/
 
-## Pages in This Site
+## The question I'm investigating
 
-This home page links to two other Markdown files in the repo. Click them to see linking in action:
+Do counties that had more fine-particle air pollution (PM2.5) around 2000 have higher lung cancer rates today, and how much of that pattern is explained by air pollution as opposed to smoking or other factors?
 
-- [Markdown examples](about.md) — an example page with embedded tables and images
-- [Code examples](embedding-code.md) — an example page with code examples (both as static markdown and as interactive [pyodide](https://pyodide.org/en/stable/) snippets)
-- [A JupyterLite notebook](notebook/notebooks/index.html?path=week10.ipynb) hosted on your GitHub pages site, which can run in the browser without your viewers needing to have Jupyter Lab/Anaconda etc installed
+## Data
 
-Each of those pages links back here and to each other. You can open them on GitHub.com *and* on the published site — the same links work in both places.
+- **Lung cancer incidence, 2019–2023:** State Cancer Profiles (National Cancer Institute and CDC), age-adjusted new cases per 100,000, by county
+- **PM2.5, 1999–2003:** CACES (Center for Air, Climate, and Energy Solutions), modeled annual averages by county
+- **Smoking, 1999–2003:** IHME county smoking prevalence estimates, 1996–2012
+- **Maps:** U.S. Census Bureau 2020 cartographic boundary files for counties and states
 
-## How It Works
+## What's in this repo
 
-- GitHub Pages runs a tool called [Jekyll](https://jekyllrb.com/) on your repo automatically every time you push. It converts each `.md` file into an `.html` page.
-- **`README.md` is the home page.** If there's no `index.md` in the repo, GitHub Pages uses `README.md` as the landing page.
-- **Linking between pages is just a normal Markdown link.** Write `[About the Project](about.md)` and GitHub Pages rewrites it to `about.html` when it builds the site. Because the link points to the `.md` file, it also works when browsing the repo on GitHub.com.
-- **No front matter required.** You don't need the `---` block some Jekyll tutorials show at the top of each file. Each page's first `# Heading` is used as its title.
-- **`_config.yml` controls site-wide settings.** In this repo it only sets the site title, description, and theme. Try changing the `theme:` line to another [supported theme](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll/) such as `jekyll-theme-cayman`.
+| Folder or file | What it is |
+| --- | --- |
+| `notebook/analysis.ipynb` | All the data cleaning, analysis, and charts |
+| `notebook/data/raw/` | The original downloaded data |
+| `notebook/data/clean/` | Cleaned tables the notebook creates |
+| `figures/` | Charts and photos used in the story |
+| `index.qmd` | The story text (Quarto + Closeread) |
+| `index.html` | The finished story that the website shows |
 
-## Publishing Your Site on GitHub.com
+## How I update it
 
-1. **Make your own copy.** [Navigate to this repo on github.com.](https://github.com/craigfahner/664-pages-template). Click **Use this template → Create a new repository** at the top of this repo on GitHub.com (or fork it). Give the repository a name; it will become part of your site's URL.
-![template](template.png)
-2. **Turn on GitHub Pages.** In your new repo, go to **Settings → Pages**. Under **Build and deployment**, set **Source** to **GitHub Actions**. (The workflow in `.github/workflows/pages.yml` builds the site, including the JupyterLite notebook. If its first run failed because Pages wasn't turned on yet, open the **Actions** tab and re-run it.)
-3. **Wait for the build.** Open the **Actions** tab to watch the "Build and deploy site" workflow. It usually takes a few minutes.
-4. **Visit your site.** It will be at:
-
-   ```
-   https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/
-   ```
-
-   The link also appears at the top of **Settings → Pages** once the site is live.
-5. **Edit and push.** Any change pushed to `main`, including edits made directly on GitHub.com with the pencil icon, rebuilds the site automatically.
-
-## Adding a New Page
-
-1. Create a new file ending in `.md`, for example `gallery.md`.
-2. Start it with a heading: `# Gallery`.
-3. Link to it from this README: `[Gallery](gallery.md)`.
-4. Commit and push. The new page appears on the site after the next build.
-
-## Troubleshooting
-
-- **404 on the site?** Make sure Pages is enabled (step 2 above) and the build in the **Actions** tab finished with a green check.
-- **A link is broken?** Check the filename's spelling and capitalization. `About.md` and `about.md` are different files.
-- **Changes aren't showing?** Wait for the build to finish, then hard-refresh your browser (Shift + Reload).
+1. Make or change a chart in `notebook/analysis.ipynb`, saved to `figures/`
+2. Add it to the story in `index.qmd`
+3. Run `quarto render index.qmd` to rebuild `index.html`
+4. Commit and push with GitHub Desktop
