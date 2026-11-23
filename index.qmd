@@ -54,20 +54,20 @@ format:
   .byline { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: #777; text-align: center; margin-bottom: 8vh; }
 
   /* Section headings between parts of the story */
-  .section-head h2, h2.section-head { font-family: 'Libre Franklin', Arial, sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; text-align: left; grid-column: page-start / page-end; max-width: 900px; margin: 4vh 0 6vh 0; position: relative; z-index: 5; border-bottom: none; }
+  .section-head h2, h2.section-head { font-family: 'Libre Franklin', Arial, sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; text-align: left; grid-column: page-start / page-end; max-width: 900px; margin: 12vh 0 6vh 0; position: relative; z-index: 5; border-bottom: none; }
 
   /* Story paragraphs in the scrolling sections */
   .cr-section:not(.intro) .narrative-col .trigger { padding-block: 1.5svh; }
   .cr-section:not(.intro) .narrative { font-size: 1.2rem; line-height: 1.55; }
   .cr-section:not(.intro) .sticky img { width: 100% !important; }
   .cr-section .sticky-col .sticky-col-stack .sticky:not(.cr-active) { transform: none !important; }
-  .cr-section:not(.intro) .narrative-col .trigger:last-child { padding-bottom: 50svh; }
+  .cr-section:not(.intro) .narrative-col .trigger:last-child { padding-bottom: 3svh; }
   /* Scatterplot zooms happen inside a fixed frame */
    .cr-section .sticky-col .sticky-col-stack .sticky.zoom-frame { overflow: hidden; transform: none !important; transition: opacity 2.0s ease-in-out; }
   .zoom-frame img { transition: transform 2.0s cubic-bezier(0.45, 0, 0.25, 1); transform-origin: center center; }
 
     /* Pittsburgh section: pale amber panel behind the photos only */
-  .cr-section.pgh { margin-block: 6vh; }
+  .cr-section.pgh { margin-block: 6vh 0; }
   .cr-section.pgh .sticky-col { background-color: #FAEEC2; padding-inline: 4vw; }
   .cr-section.pgh .narrative-col .trigger { padding-block: 3svh; }
   .cr-section.pgh .narrative-col .trigger:last-child { padding-bottom: 3svh; }
@@ -77,15 +77,16 @@ format:
   [id^="cr-pgh"] p, [id^="cr-pgh"] figure, [id^="cr-pgh"] .quarto-figure { height: 100%; margin: 0; }
   [id^="cr-pgh"] img { width: 100% !important; height: 100% !important; object-fit: cover; }
 
-  /* Pittsburgh photos: a stack of prints, each new one landing a little lower */
-  .cr-section.pgh .sticky-col .sticky-col-stack .sticky[id^="cr-pgh"] { width: 72%; transform: translate(var(--x), calc(var(--y) + 40px)) rotate(var(--r)) !important; transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease; }
+  /* Pittsburgh photos: larger, each placed beside its own paragraph, fading in one at a time */
+  .cr-section.pgh .sticky-col .sticky-col-stack { position: relative !important; top: auto !important; height: 100% !important; display: block !important; }
+  .cr-section.pgh .sticky-col .sticky-col-stack .sticky[id^="cr-pgh"] { position: absolute !important; left: 6%; width: 88% !important; margin: 0 !important; transform: translateY(24px) rotate(var(--r)) !important; transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out !important; }
   .cr-section.pgh .sticky-col .sticky-col-stack .sticky[id^="cr-pgh"].cr-active,
-  .cr-section.pgh .sticky-col .sticky-col-stack .sticky[id^="cr-pgh"].past { transform: translate(var(--x), var(--y)) rotate(var(--r)) !important; }
+  .cr-section.pgh .sticky-col .sticky-col-stack .sticky[id^="cr-pgh"].past { transform: translateY(0) rotate(var(--r)) !important; }
   .cr-section.pgh .sticky-col .sticky-col-stack .sticky[id^="cr-pgh"].past { opacity: 0; }
-  #cr-pgh1 { --x: -10%; --y: -50%; --r: -2deg;   z-index: 1; }
-  #cr-pgh2 { --x: 7%;   --y: -17%; --r: 1.5deg;  z-index: 2; }
-  #cr-pgh3 { --x: -7%;  --y: 17%;  --r: -1deg;   z-index: 3; }
-  #cr-pgh4 { --x: 10%;  --y: 50%;  --r: 2deg;    z-index: 4; }
+  #cr-pgh1 { --r: -1.5deg; }
+  #cr-pgh2 { --r: 1deg; }
+  #cr-pgh3 { --r: -1deg; }
+  #cr-pgh4 { --r: 1.5deg; }
 
   /* Plain text between scrolling sections */
   .wide-text p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 1em; }
@@ -96,6 +97,11 @@ format:
   /* Newspaper article */
   #cr-article, #cr-excerpt { width: 100%; }
   #cr-article img, #cr-excerpt img { width: 100% !important; }
+
+  /* Newspaper section: article starts level with the first paragraph; zoom happens slowly inside the frame */
+  .cr-section.news .sticky-col .sticky-col-stack { position: relative !important; top: auto !important; height: 100% !important; display: block !important; }
+  .cr-section.news .sticky-col .sticky-col-stack #cr-article { position: absolute !important; left: 0; width: 100% !important; margin: 0 !important; overflow: hidden; transform: none !important; transition: opacity 0.8s ease-in-out !important; }
+  .cr-section.news #cr-article img { transition: transform 2.2s cubic-bezier(0.45, 0, 0.25, 1) !important; transform-origin: center center; }
 
   /* Map toggle */
   .map-toggle { width: 100%; }
@@ -108,8 +114,9 @@ format:
   .map-stack img.active { opacity: 1; }
 
   /* Map section: text on the left, map panel on the right that travels with the text */
-  .map-section { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: start; margin: 4vh auto 10vh; }
+  .map-section { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: start; margin: 4vh auto 0; }
   .map-section .map-text p { font-size: 1.2rem; line-height: 1.55; margin-bottom: 1.1em; }
+  .map-section .map-text p:last-child, .wide-text p:last-child { margin-bottom: 0; }   /* no extra space after the last paragraph of a section */
   .map-section .map-panel { position: sticky; top: 10vh; }
   @media (max-width: 768px) { .map-section { grid-template-columns: 1fr; } .map-section .map-panel { position: static; } }
 
@@ -273,6 +280,37 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Pittsburgh photos: place each photo beside its own paragraph, inside the yellow panel
+function placePittsburghPhotos() {
+  const section = document.querySelector(".cr-section.pgh");
+  if (!section) return;
+  const panel = section.querySelector(".sticky-col");
+  const paragraphs = section.querySelectorAll(".narrative-col .trigger p");
+  const photos = section.querySelectorAll(".sticky");
+  const panelTop = panel.getBoundingClientRect().top;
+  photos.forEach(function (photo, i) {
+    if (!paragraphs[i]) return;
+    const paragraphTop = paragraphs[i].getBoundingClientRect().top - panelTop;
+    const lowest = panel.offsetHeight - photo.offsetHeight - 24;      // keep a 24px margin at the bottom of the panel
+    photo.style.top = Math.min(Math.max(paragraphTop, 24), lowest) + "px";
+  });
+}
+window.addEventListener("load", placePittsburghPhotos);
+window.addEventListener("resize", placePittsburghPhotos);
+
+// Newspaper section: line up the top of the article with the top of the first paragraph
+function placeArticle() {
+  const article = document.querySelector("#cr-article");
+  if (!article) return;
+  const section = article.closest(".cr-section");
+  const panel = section.querySelector(".sticky-col");
+  const firstParagraph = section.querySelector(".narrative-col .trigger p");
+  article.style.top = (firstParagraph.getBoundingClientRect().top - panel.getBoundingClientRect().top) + "px";
+  panel.style.minHeight = (article.offsetTop + article.offsetHeight) + "px";   // make the section tall enough to hold the whole article
+}
+window.addEventListener("load", placeArticle);
+window.addEventListener("resize", placeArticle);
+
 </script>
 
 ```
@@ -333,16 +371,16 @@ By the early 1990s, Pittsburgh’s skies looked much cleaner. But the fine-parti
 
 :::
 
-## I wasn't the first person to wonder about the pollution–cancer connection {.section-head .unnumbered}
+## I wasn't the first person to wonder about the pollution–cancer connection. {.section-head .unnumbered}
 
-:::{.cr-section}
+:::{.cr-section .news}
 
-In December 2010, the Pittsburgh Post-Gazette ran an eight-part series called "Mapping Mortality: A Special Report on the Air We Breathe." Reporters Don Hopey and David Templeton spent a year analyzing 2000–2008 death rates from heart disease, lung disease and lung cancer across 14 counties in western Pennsylvania. [@cr-article]{scale-by="3" pan-to="-70%,-129%"}
+In December 2010, the Pittsburgh Post-Gazette ran an eight-part series called "Mapping Mortality: A Special Report on the Air We Breathe." Reporters Don Hopey and David Templeton spent a year analyzing 2000–2008 death rates from heart disease, lung disease and lung cancer across 14 counties in western Pennsylvania. @cr-article
 
-With the help of local statisticians and public health experts, they concluded that cancer and heart disease rates in the Pittsburgh area were higher than would be expected based on national risk rates for these diseases. [@cr-article]{scale-by="3" pan-to="-70%,-129%"}
+With the help of local statisticians and public health experts, they concluded that cancer and heart disease rates in the Pittsburgh area were "more than 16 percent higher" than national rates would predict. [@cr-article]{scale-by="2" pan-to="-47%,-50%"}
 
-:::{#cr-article}
-![](figures/Region_At_Risk_article.jpeg)
+:::{#cr-article .zoom-frame}
+![](figures/Region_At_Risk_article_highlight.jpg)
 :::
 
 :::
