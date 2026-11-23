@@ -549,6 +549,8 @@ Clean air seems to protect, and dirtier air seems to increase the risk of lung c
 ```
 :::
 
+:::
+
 ## Losing the Blame Game {.section-head .unnumbered}
 
 :::{.wide-text .column-body}
@@ -563,5 +565,4 @@ And county data can't answer the question that started all of this. It counts th
 
 I really wanted to blame Pittsburgh's industrial past for my father's death. But apparently, it's more complicated than that.
 
-:::
 :::
