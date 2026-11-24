@@ -1,6 +1,6 @@
 # Something in the Air
 
-This is a project I'm working on for my INFO 664 class at Pratt Institute (Programming for Cultural Heritage). It's a data story about the connection between lung cancer and air pollution in U.S. counties, prompted by my family's history in Pittsburgh and my parents' recent lung cancer diagnosis.
+This is a project I'm working on for my INFO 664 class at Pratt Institute (Programming for Cultural Heritage). It's a data story about the connection between lung cancer and air pollution in U.S. counties, prompted by my family's history in Pittsburgh and my parents' recent lung cancer diagnoses.
 
 **Read the story:** https://hungarpratt.github.io/pollution_and_cancer/
 
