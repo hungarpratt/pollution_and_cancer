@@ -1,6 +1,6 @@
 # Something in the Air
 
-This is a project I'm working on for my INFO 664 class at Pratt Institute (Programming for Cultural Heritage). It's a data story about lung cancer and air pollution in U.S. counties, starting from my family's history in Pittsburgh.
+This is a project I'm working on for my INFO 664 class at Pratt Institute (Programming for Cultural Heritage). It's a data story about the connection between lung cancer and air pollution in U.S. counties, prompted by my family's history in Pittsburgh and my parents' recent lung cancer diagnosis.
 
 **Read the story:** https://hungarpratt.github.io/pollution_and_cancer/
 
@@ -25,10 +25,3 @@ Do counties that had more fine-particle air pollution (PM2.5) around 2000 have h
 | `figures/` | Charts and photos used in the story |
 | `index.qmd` | The story text (Quarto + Closeread) |
 | `index.html` | The finished story that the website shows |
-
-## How I update it
-
-1. Make or change a chart in `notebook/analysis.ipynb`, saved to `figures/`
-2. Add it to the story in `index.qmd`
-3. Run `quarto render index.qmd` to rebuild `index.html`
-4. Commit and push with GitHub Desktop
